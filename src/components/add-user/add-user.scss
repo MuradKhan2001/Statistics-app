@@ -1,0 +1,167 @@
+.add-user {
+  width: 100%;
+  height: 100vh;
+  padding-top: 14px;
+  background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+  position: relative;
+  overflow: hidden;
+
+  .ForTitle {
+    .title {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #1572A1;
+    }
+  }
+
+  .content-box {
+    width: 90%;
+    margin: 40px auto 0 auto;
+    display: flex;
+
+    justify-content: space-around;
+
+    .sides {
+      overflow-y: auto;
+      width: 40%;
+      height: 350px;
+      padding: 10px;
+
+      .checkUser {
+        height: 20px;
+        font-size: 14px;
+        color: red;
+      }
+
+      .inputs {
+        input {
+          padding-left: 20px;
+          margin-top: 20px;
+          width: 100%;
+          height: 35px;
+          border-radius: 5px;
+          border: 1px solid #1572A1;
+        }
+      }
+
+      .add-user-btn {
+        margin-top: 20px;
+        width: 140px;
+        height: 40px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #144667;
+        color: white;
+        cursor: pointer;
+      }
+
+      .user {
+        margin-top: 20px;
+        border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        color: #144667;
+        width: 100%;
+        height: 60px;
+        background-color: white;
+
+        .text {
+          width: 70%;
+
+          div {
+            font-weight: 500;
+          }
+        }
+
+        .buttons {
+          display: flex;
+
+          div {
+            margin-right: 10px;
+
+            img {
+              width: 30px;
+              height: 30px;
+              cursor: pointer;
+            }
+          }
+
+          .edit {
+
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+
+@media (max-width: 920px) {
+  .add-user {
+    height: auto;
+
+    .ForTitle {
+      .title {
+        font-size: 18px;
+      }
+    }
+
+    .content-box {
+      display: block;
+      padding-bottom: 100px;
+
+      .sides {
+        width: 100%;
+
+        .user {
+          margin-top: 20px;
+          border-radius: 5px;
+          box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+          display: flex;
+          align-items: center;
+          padding-left: 20px;
+          color: #144667;
+          width: 100%;
+          height: 60px;
+          background-color: white;
+
+          .text {
+            width: 70%;
+
+            div {
+              font-weight: 500;
+            }
+          }
+
+          .buttons {
+            display: flex;
+
+            div {
+              margin-right: 10px;
+
+              img {
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+              }
+            }
+
+            .edit {
+
+            }
+          }
+        }
+      }
+
+    }
+
+  }
+}

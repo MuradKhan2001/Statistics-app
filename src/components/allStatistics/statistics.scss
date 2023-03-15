@@ -1,0 +1,119 @@
+.all-statistics{
+  width: 100%;
+  padding-top: 14px;
+  background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+  .ForTitle{
+    .title{
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #1572A1;
+    }
+  }
+  .content-box {
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 60px;
+    .section-one {
+      width: 70%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .left-side {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        input {
+          border-radius: 5px;
+          color: #144667;
+          font-weight: bold;
+          padding: 12px;
+          border: none;
+          height: 35px;
+          font-size: 16px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+          &:focus {
+            outline: none;
+          }
+        }
+
+        button {
+          width: 30px;
+          height: 30px;
+          border: none;
+          margin-left: 15px;
+          cursor: pointer;
+          background-color: transparent;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    .section-two {
+      width: 70%;
+      margin: 40px auto;
+      .text{
+        color: #144667;
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+      }
+    }
+
+    .table-content{
+      width: 95%;
+      height: 500px;
+      overflow: auto;
+      margin: 20px auto;
+      padding: 15px;
+      border: 3px ridge #144667;
+      border-radius: 5px;
+      table{
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 5px;
+        thead{
+          font-size: 18px;
+          th{
+            color: #144667;
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+          }
+        }
+        tbody{
+          tr{
+            td{
+              color: #144667;
+              box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+              padding: 12px;
+              .box{
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img{
+                  width: 30px;
+                  height: 30px;
+                  cursor: pointer;
+                }
+              }
+
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
