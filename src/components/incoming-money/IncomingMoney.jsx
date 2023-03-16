@@ -53,7 +53,7 @@ const IncomingMoney = () => {
             }
         }).then((response) => {
             setMainList(response.data.items);
-            setAllPrice(response.data.income.income);
+            setAllPrice(response.data.income);
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
                 window.location.pathname = "/";
@@ -69,6 +69,7 @@ const IncomingMoney = () => {
                 "Authorization": `Token ${localStorage.getItem("token")}`
             }
         }).then((response) => {
+            console.log(response.data)
             setSource(response.data)
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
@@ -106,6 +107,7 @@ const IncomingMoney = () => {
                     }
                 }).then((response) => {
                     setMainList(response.data.items);
+                    setAllPrice(response.data.income)
                 });
 
                 let newList = {
@@ -137,6 +139,7 @@ const IncomingMoney = () => {
                     "Authorization": `Token ${localStorage.getItem("token")}`
                 }
             }).then((response) => {
+                setAllPrice(response.data.income)
                 setMainList(response.data.items);
             })
         }).catch(() => {
@@ -153,7 +156,7 @@ const IncomingMoney = () => {
             description: list.description,
             date: list.date
         };
-
+        console.log(lists)
         axios.put(`${value.url}/api/income/${editId}/`, lists, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("token")}`
@@ -165,6 +168,7 @@ const IncomingMoney = () => {
                 }
             }).then((response) => {
                 setMainList(response.data.items);
+                setAllPrice(response.data.income)
             });
             setCheckBtn(true);
             let newList = {
@@ -191,16 +195,16 @@ const IncomingMoney = () => {
 
         let newList = {
             name: sourceId,
-            price: MainList[index].amount,
+            price: Number(MainList[index].amount.replace(",","")),
             gift: MainList[index].gift,
             description: MainList[index].description,
             fund: MainList[index].fund_percent,
             date: MainList[index].date
         };
-        setList(newList)
+        setList(newList);
 
         document.getElementById('name').value = sourceId;
-        document.getElementById('price').value = MainList[index].amount;
+        document.getElementById('price').value = Number(MainList[index].amount.replace(",",""));
         document.getElementById('description').value = MainList[index].description;
         document.getElementById('fund').value = MainList[index].fund_percent;
         document.getElementById('date').value = MainList[index].date;
@@ -218,6 +222,7 @@ const IncomingMoney = () => {
                 params: {year: year, month: month}
             }).then((response) => {
                 setMainList(response.data.items);
+                setAllPrice(response.data.income)
             });
         }
     };
@@ -471,10 +476,10 @@ const IncomingMoney = () => {
                                 <td>{index + 1}</td>
                                 <td>{item.source}</td>
                                 <td>{item.date}</td>
-                                <td>{item.amount} so'm</td>
+                                <td>{item.amount} сўм</td>
                                 <td>{item.fund_percent}%</td>
-                                <td>{item.fund} so'm</td>
-                                <td>{item.clean_amount} so'm</td>
+                                <td>{item.fund} сўм</td>
+                                <td>{item.clean_amount} сўм</td>
                                 <td>{item.gift ? "Бор" : "Йўқ"}</td>
                                 <td>{item.description}</td>
 

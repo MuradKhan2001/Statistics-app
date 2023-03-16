@@ -50,7 +50,8 @@ const OutgoingMoney = () => {
             }
         }).then((response) => {
             setMainList(response.data.items);
-            setAllPrice(response.data.expence.expence);
+            setAllPrice(response.data.expence);
+
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
                 window.location.pathname = "/";
@@ -61,12 +62,13 @@ const OutgoingMoney = () => {
             }
         });
 
-        axios.get(`${value.url}/api/source/`, {
+        axios.get(`${value.url}/api/expencesource/`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("token")}`
             }
         }).then((response) => {
             setSource(response.data)
+
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
                 window.location.pathname = "/";
@@ -102,6 +104,7 @@ const OutgoingMoney = () => {
                     }
                 }).then((response) => {
                     setMainList(response.data.items);
+                    setAllPrice(response.data.expence);
                 });
                 let newList = {
                     source_expence: "",
@@ -130,6 +133,7 @@ const OutgoingMoney = () => {
                     "Authorization": `Token ${localStorage.getItem("token")}`
                 }
             }).then((response) => {
+                setAllPrice(response.data.expence);
                 setMainList(response.data.items);
             })
         }).catch(() => {
@@ -156,6 +160,7 @@ const OutgoingMoney = () => {
                     "Authorization": `Token ${localStorage.getItem("token")}`
                 }
             }).then((response) => {
+                setAllPrice(response.data.expence);
                 setMainList(response.data.items);
             });
             setCheckBtn(true);
@@ -182,7 +187,7 @@ const OutgoingMoney = () => {
 
         let newList = {
             source: sourceId,
-            amount: MainList[index].amount,
+            amount: Number(MainList[index].amount.replace(",","")),
             description: MainList[index].description,
             date: MainList[index].date,
             source_expence: MainList[index].source_expence
@@ -190,7 +195,7 @@ const OutgoingMoney = () => {
         setList(newList);
 
         document.getElementById('source').value = sourceId;
-        document.getElementById('amount').value = MainList[index].amount;
+        document.getElementById('amount').value = Number(MainList[index].amount.replace(",",""));
         document.getElementById('description').value = MainList[index].description;
         document.getElementById('source_expence').value = MainList[index].source_expence;
         document.getElementById('date').value = MainList[index].date;
@@ -207,6 +212,7 @@ const OutgoingMoney = () => {
                 },
                 params: {year: year, month: month}
             }).then((response) => {
+                setAllPrice(response.data.expence);
                 setMainList(response.data.items);
             });
         }
@@ -219,13 +225,13 @@ const OutgoingMoney = () => {
                 name: sourceName
             };
 
-            axios.post(`${value.url}/api/source/`, Source, {
+            axios.post(`${value.url}/api/expencesource/`, Source, {
                 headers: {
                     "Authorization": `Token ${localStorage.getItem("token")}`
                 }
             }).then(() => {
 
-                axios.get(`${value.url}/api/source/`, {
+                axios.get(`${value.url}/api/expencesource/`, {
                     headers: {
                         "Authorization": `Token ${localStorage.getItem("token")}`
                     }
@@ -241,13 +247,13 @@ const OutgoingMoney = () => {
     };
 
     const delSource = () => {
-        axios.delete(`${value.url}/api/source/${sourceId}`, {
+        axios.delete(`${value.url}/api/expencesource/${sourceId}`, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("token")}`
             }
         }).then(() => {
 
-            axios.get(`${value.url}/api/source/`, {
+            axios.get(`${value.url}/api/expencesource/`, {
                 headers: {
                     "Authorization": `Token ${localStorage.getItem("token")}`
                 }

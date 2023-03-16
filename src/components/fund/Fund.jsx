@@ -20,7 +20,7 @@ const Fund = () => {
             }
         }).then((response) => {
             setMainList(response.data.items);
-            setAllPrice(response.data.fund.fund);
+            setAllPrice(response.data.fund);
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
                 window.location.pathname= "/";
@@ -116,9 +116,9 @@ const Fund = () => {
                                 <td>{index+1}</td>
                                 <td>{item.source}</td>
                                 <td>{item.date}</td>
-                                <td>{item.amount}</td>
-                                <td>{item.fund_percent}</td>
-                                <td>{item.fund}</td>
+                                <td>{item.amount} сўм</td>
+                                <td>{item.fund_percent}%</td>
+                                <td>{item.fund} сўм</td>
                                 <td>{item.description}</td>
                             </tr>
                         })

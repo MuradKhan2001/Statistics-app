@@ -15,6 +15,7 @@ const Home = () => {
             }
         }).then((response) => {
             setPrices(response.data)
+            console.log(response.data)
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
                 window.location.pathname= "/";
@@ -43,7 +44,7 @@ const Home = () => {
                         <div className="prices">Умумий қарз миқдори: <span>{prices.loan} сўм</span></div>
                     </div>
                     <div className="sides">
-                        <div className="prices">Бир кунлик кирим: <span>{prices.day_income}сўм</span></div>
+                        <div className="prices">Бир кунлик кирим: <span>{prices.day_income} сўм</span></div>
                         <div className="prices">Бир кунлик чиқим: <span>{prices.day_expence} сўм</span></div>
                         <div className="prices">Умумий жамғарма миқдори: <span>{prices.fund} сўм</span></div>
                     </div>
