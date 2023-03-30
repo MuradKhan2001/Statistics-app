@@ -69,7 +69,6 @@ const IncomingMoney = () => {
                 "Authorization": `Token ${localStorage.getItem("token")}`
             }
         }).then((response) => {
-            console.log(response.data)
             setSource(response.data)
         }).catch((error) => {
             if (error.response.statusText == "Unauthorized") {
@@ -156,7 +155,6 @@ const IncomingMoney = () => {
             description: list.description,
             date: list.date
         };
-        console.log(lists)
         axios.put(`${value.url}/api/income/${editId}/`, lists, {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("token")}`
@@ -261,15 +259,6 @@ const IncomingMoney = () => {
                 "Authorization": `Token ${localStorage.getItem("token")}`
             }
         }).then(() => {
-
-            axios.get(`${value.url}/api/source/`, {
-                headers: {
-                    "Authorization": `Token ${localStorage.getItem("token")}`
-                }
-            }).then((response) => {
-                setSource(response.data.items);
-            });
-
             window.location.reload()
 
         }).catch(() => {

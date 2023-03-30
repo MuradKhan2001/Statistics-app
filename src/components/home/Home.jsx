@@ -17,6 +17,7 @@ const Home = () => {
             setPrices(response.data)
             console.log(response.data)
         }).catch((error) => {
+            console.log(error)
             if (error.response.statusText == "Unauthorized") {
                 window.location.pathname= "/";
                 localStorage.removeItem("userRole");

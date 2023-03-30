@@ -172,7 +172,7 @@ const OutgoingMoney = () => {
                 source: ""
             };
             setList(newList)
-        }).catch((error) => {
+        }).catch(() => {
 
         });
     };
@@ -252,17 +252,7 @@ const OutgoingMoney = () => {
                 "Authorization": `Token ${localStorage.getItem("token")}`
             }
         }).then(() => {
-
-            axios.get(`${value.url}/api/expencesource/`, {
-                headers: {
-                    "Authorization": `Token ${localStorage.getItem("token")}`
-                }
-            }).then((response) => {
-                setSource(response.data.items);
-            });
-
             window.location.reload()
-
         }).catch(() => {
         });
     };
